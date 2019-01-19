@@ -1,6 +1,6 @@
 #include <stdio.h>
-#define N 256
-#define M 512
+#define N 100
+#define M 200
 
 int main()
 {
