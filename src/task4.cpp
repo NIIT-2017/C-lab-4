@@ -1,4 +1,7 @@
 #include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <time.h>
 
 void printLinesToFile(const char *str[], int size, FILE *fp) // taking A of Ps to lines, Ints and FILE IOT print
 {
