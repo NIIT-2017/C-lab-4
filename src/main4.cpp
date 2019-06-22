@@ -1,4 +1,4 @@
-#include "pch.h"
+//#include "pch.h"
 #include <stdio.h>
 #include "task1.h"
 #include "task4.h"
