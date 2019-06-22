@@ -19,7 +19,7 @@ int main()
 	}
 	fp = fopen("lab4.txt", "a+");
 	lineSort(p, count);
-	printLinesToFile((const char**)p, count, fp);
+	printLinesToFile(p, count, fp);
 
 	return 0;
 }
