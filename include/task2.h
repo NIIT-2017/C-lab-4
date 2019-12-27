@@ -1,1 +1,1 @@
-int turn(int value, int secret);
+char * reverseWords(char * in, char * out);

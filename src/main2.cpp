@@ -1,54 +1,21 @@
 #include <stdio.h>
-#include <time.h>
-#include <stdlib.h>
+#include <string.h>
 #include "task2.h"
 
-void clean_stdin(void)
-{
-    int c;
-    do {
-        c = getchar();
-    } while (c != '\n' && c != EOF);
-}
+#define N 128
 
 int main()
 {
-    srand(time(NULL));
-    
-    int secret = 1 + rand() % 100;
-    int value = 1;
-    int count = 0;
+    char in[N];
+    char out[N];
 
-    while (1)
-    {
-        printf("Guess a number from 1 to 100:\n");
-        int r = scanf("%d", &value);
+    printf("Enter a line:\n");
+    fgets(in, N, stdin);
 
-        if (value <= 0 || value > 100 || r == 0)
-        {
-            printf("Incorrect number!\n");
-            clean_stdin();
-            continue;
-        }
+    if (in[strlen(in) - 1] == '\n')
+        in[strlen(in) - 1] = '\0';
 
-        int t = turn(value, secret);
+    printf("%s\n", reverseWords(in, out));
 
-        if (t > 0)
-        {
-            printf("Take less!\n");
-            count++;
-        }
-        else if (t < 0)
-        {
-            printf("Take more!\n");
-            count++;
-        }
-        else
-        {
-            printf("Correct! You guessed in %d attempts.\n", ++count);
-            break;
-        }
-    }
-    
     return 0;
 }
