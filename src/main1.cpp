@@ -2,27 +2,30 @@
 #include <string.h>
 #include "task1.h"
 
-#define A 5 // number of strings
 #define B 20 // max length of string
 
 int main()
 {
-    char arr[A][B];
-    char *str[A];
+    char arr[20][B];
+    char *str[20];
 
-    printf("Enter a group of lines:\n");
+    printf("Enter strings:\n");
 
-    for (int i = 0; i < A; i++)
+    int i = 0;
+    while (1)
     {
         fgets(arr[i], B, stdin);
+        if (arr[i][0] == '\n') break;
         str[i] = arr[i];
         if (arr[i][strlen(arr[i]) - 1] == '\n')
             arr[i][strlen(arr[i]) - 1] = '\0';
+        i++;
     }
 
-    lineSort(str, A);
+    lineSort(str, i);
+
     printf("\n");
-    printLines((const char**)str, A);
-    
+    printLines((const char**)str, i);
+
     return 0;
 }
