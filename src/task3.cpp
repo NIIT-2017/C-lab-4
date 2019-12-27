@@ -4,9 +4,8 @@ int isPalindrome(char * str)
 {
     char *s = str;
     char *t = str + strlen(str) - 1;
-    int result = 1;
 
-    for (int i = 0; i < strlen(str); i++)
+    while (t > str)
     {
         if (*str != *t) return 0;
         str++;
