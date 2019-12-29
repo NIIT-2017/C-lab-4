@@ -27,7 +27,6 @@ int main()
 	fclose(fp);
     lineSort(strBegin, size);
 	
-	FILE* fp;
     fp = fopen("wisdom2.txt", "wt");
     if (!fp)
     {
