@@ -7,23 +7,23 @@
 int main()
 {
     char str[strl][symbl];
-    char* strBegin[strl] = { NULL };
-    FILE* fp;
+	char* strBegin[strl] = { NULL };
 	
+    FILE* fp;
     fp = fopen("wisdom.txt", "rt");
     if (!fp)
     {
         puts("Error!");
         return 1;
     }
-
+    
     int size = 0;
     while (fgets(str[size], symbl, fp) && size < strl)
     {
         strBegin[size] = str[size];
         size++;
     }
-    fclose(fp);
+	fclose(fp);
 	
     lineSort(strBegin, size);
 	
