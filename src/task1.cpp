@@ -3,14 +3,14 @@
 #include <stdlib.h>
 #include <string.h>
 
-int cmp(const void* a, const void* b)
+int cmp1(const void* a, const void* b)
 {
     return strlen(*(char**)a) - strlen(*(char**)b);
 }
 
 void lineSort(char* str[], int size)
 {
-    qsort(str, size, sizeof(char*), cmp);
+    qsort(str, size, sizeof(char*), cmp1);
 }
 
 void printLines(const char* str[], int size)
