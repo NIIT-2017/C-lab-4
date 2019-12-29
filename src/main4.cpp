@@ -1,6 +1,5 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <cstdio>
-#include "task1.h"
 #define strl 164
 #define symbl 512
 #include "task4.h"
