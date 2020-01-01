@@ -35,9 +35,10 @@ char* reverseWords(char* in, char* out)
         {
             out[i++] = *symbl++;
         }
-        out[i++] = '_';
+        out[i++] = ' ';
         j--;
     }
+	out[i] = '\0';
     out[i-1] = '\0';
 
     return 0;
