@@ -3,11 +3,6 @@
 #include <stdlib.h>
 #define size 256
 
-int cmp2(const void* a, const void* b)
-{
-    return *(int*)b - *(int*)a;
-}
-
 char* reverseWords(char* in, char* out)
 {
     char* word[size] = { NULL };
@@ -32,19 +27,18 @@ char* reverseWords(char* in, char* out)
             i++;
         }
     }
-  
-    qsort(word, size, sizeof(int), cmp2);
-    for (int i = 0, j = 0; word[j]; j++)
+    i = 0;
+    while (j > 0)
     {
-        char* symbl = word[j];
-        while (symbl && *symbl != ' ' && *symbl != '\0')
+        char* symbl = word[j-1];
+        while( symbl && *symbl != ' ' && *symbl != '\0')
         {
-            out[i] = *symbl++;
-            i++;
+            out[i++] = *symbl++;
         }
         out[i++] = ' ';
+        j--;
     }
-    out[i] = '\0';
+    out[i++] = '\0';
 
     return 0;
 }
