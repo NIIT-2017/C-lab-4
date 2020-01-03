@@ -13,7 +13,7 @@ void lineSort(char* str[], int size)
 				str[i] = str[i + 1];
 				str[i + 1] = bubble;
 			}
-		size--;
+		//size--;
 	}
 }
 
