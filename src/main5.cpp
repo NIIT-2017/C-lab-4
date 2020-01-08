@@ -3,52 +3,43 @@
 #include <stdlib.h>
 #include <clocale>
 
+#define nameNumber 16
+#define nameLength 32
+
 int main() {
 	setlocale(LC_ALL, "russian");
 
-	char* young = 0, * old = 0;
-	int max = 0, min = 0, durring = 0, num = 0;
-	char family[30][256] = { 0 };
-	printf("Please, enter number of relatives\n");
-	scanf("%d", &num);
-	getchar();// использую дл€ того чтобы в буфере не осталось \n
-	if(num == 0 || num == 1) {
-		printf("Error!\n");
-		return 0;
-	}
-	for(int i = 0; i < num; i++) {
-		printf("Please enter name of %d relative\n", i + 1);
-		fgets(family[i], 256, stdin);
-		if(family[i][strlen(family[i]) - 1] == '\n')
-			family[i][strlen(family[i]) - 1] = '\0';
-		printf("Enter his/her age\n");
-		scanf("%d", &durring);
-		getchar();// использую дл€ того чтобы в буфере не осталось \n
-		if(i == 0) {
-			max = durring;
-			min = durring;
-			young = family[i];
-			old = family[i];
-		}
-		else if(i != 0 && durring > max) {
-			max = durring;
-			old = family[i];
-		}
-		else if(i != 0 && durring < min) {
-			min = durring;
-			young = family[i];
-		}
-	}
-	while(*old != '\0') {
-		printf("%c", *old);
-		*old++;
-	}
-	printf(" - %d", max);
-	putchar('\n');
-	while(*young != '\0') {
-		printf("%c", *young);
-		*young++;
-	}
-	printf(" - %d", min);
+    int number = 0, age = 0, maxAge = 0, minAge = 0;
+    char name[nameNumber][nameLength] = { {0} };
+    char* young = NULL;
+    char* old = NULL;
+
+    printf("¬ведите количество родственников: ");
+    scanf("%d", &number);
+
+    for(int i = 0; i < number; i++) {
+        printf("¬ведите им€ %d-го родственника ", i + 1);
+        scanf("%s", name[i]);
+        printf("¬ведите возраст родственника: ");
+        scanf("%d", &age);
+        if(minAge == 0 && maxAge == 0) {
+            minAge = age;
+            young = name[i];
+            maxAge = age;
+            old = name[i];
+        }
+        else if(age > maxAge) {
+            maxAge = age;
+            old = name[i];
+        }
+        else if(age < minAge) {
+            minAge = age;
+            young = name[i];
+        }
+    }
+
+    printf("\n");
+    printf("—амый молодой родственник: %s\n", young);
+    printf("—амый старый родственник: %s\n", old);
 
 }
