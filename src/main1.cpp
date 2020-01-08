@@ -16,7 +16,7 @@ int main() {
 
     for (int i = 0; i < SIZE; i++) {
         fgets(str[i], 128, stdin);
-        if(str[i][0] == '\n') {
+        if(str[i][0] == '\n') {  //Looking for an empty string
             break;
         }
         pstr[i] = str[i];

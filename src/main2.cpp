@@ -1,14 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
-# include <string.h>
+#include <string.h>
 #include "task2.h"
 
 int main() {
 
     char in[128];
-    char out[120];
+    char out[128];
 
-    printf("Enter your frase.\n");
+    printf("Enter your phrase.\n");
+    fgets(in, 128, stdin);
     if (in[strlen(in) - 1] == '\n') {
         in[strlen(in) - 1] = 0;
     }
