@@ -1,5 +1,5 @@
 #include "task4.h"
-#include "C:\labs\C-lab-4\src\task1.cpp"
+//#include "C:\labs\C-lab-4\src\task1.cpp"
 
 int main()
 {
