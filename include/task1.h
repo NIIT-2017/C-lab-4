@@ -2,6 +2,7 @@
 #include<string.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <corecrt_search.h>
 #define BUFFER_SIZE 40
 void lineSort(char* str[], int size);
 void printLines(const char* str[], int size);
