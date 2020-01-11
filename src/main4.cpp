@@ -1,5 +1,6 @@
 ﻿#include "task4.h"
 #include <string.h>
+#include <stdio.h>
 
 #define MAX_ROW_SIZE 1024
 #define MAX_ROWS 256
@@ -10,7 +11,7 @@ int main()
 {
 	FILE* in, * out;
 
-	in = fopen("task4_in.txt", "rt");
+	in = fopen("task4.txt", "r");
 
 	if (in == NULL)
 	{
@@ -30,7 +31,7 @@ int main()
 	fclose(in);
 
 	lineSort(pstr, count);
-	out = fopen("task4_out.txt", "w");
+	out = fopen("task4.txt", "w");
 	printLinesToFile((const char**)pstr, count, out);
 	fclose(out);
 
