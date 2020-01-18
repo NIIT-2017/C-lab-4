@@ -1,10 +1,11 @@
 #include "task1.h"
+#include <cstdlib>
 struct string 
 {
     int len;
     char* str;
 };
-int cmp(const void * a, const void* b)
+static int cmp(const void * a, const void* b)
 {
     return ((string*)a)->len - ((string*)b)->len;
 }
@@ -16,7 +17,7 @@ void lineSort(char* str[], int size)
         strings[i].len = strlen(str[i]);
         strings[i].str = str[i];
     }
-    qsort(strings, size,sizeof(string),cmp);
+    std::qsort(strings, size,sizeof(string),cmp);
     for (int i = 0; i < size; i++)
         str[i] = strings[i].str;
     
