@@ -4,9 +4,9 @@ struct string
     int len;
     char* str;
 };
-int cmp(string* a, string* b)
+int cmp(const void * a, const void* b)
 {
-    return a->len - b->len;
+    return ((string*)a)->len - ((string*)b)->len;
 }
 void lineSort(char* str[], int size)
 {
@@ -16,7 +16,7 @@ void lineSort(char* str[], int size)
         strings[i].len = strlen(str[i]);
         strings[i].str = str[i];
     }
-    qsort(strings, size,sizeof(string),(_CoreCrtNonSecureSearchSortCompareFunction)cmp);
+    qsort(strings, size,sizeof(string),cmp);
     for (int i = 0; i < size; i++)
         str[i] = strings[i].str;
     
@@ -38,6 +38,8 @@ int fillArr(char*** arr, FILE* input)
         if (feof(input))
             break;
         fgets(buf, BUFFER_SIZE, input);
+        if (buf[0] == '\n')
+            break;
         if (!head)
         {
             head = (Node*)malloc(sizeof(Node));

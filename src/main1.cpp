@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "task1.h"
-int main1()
+int main()
 {
     char** arr;
     int count=fillArr(&arr,stdin);

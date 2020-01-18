@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include "task1.h"
 #include "task4.h"
-int main4()
+int main()
 {
     FILE* fpin = fopen("Data.txt", "r");
     char** arr;

@@ -28,4 +28,5 @@ int main()
     }
     printf("\nYoungest : %s  : %d ", youngest, minAge);
     printf("\nOldest : %s  : %d ", oldest, maxAge);
+    return 0;
 }

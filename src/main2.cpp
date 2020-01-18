@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "task2.h"
 #define SIZE 50
-int main2()
+int main()
 {
     char in[SIZE];
     fgets(in, SIZE, stdin);
