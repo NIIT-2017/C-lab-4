@@ -30,8 +30,11 @@ char* reverseWords(char* in, char* out)
             out[posInString] = arr[i][j];
             posInString++;
         }
-        out[posInString] = ' ';
-        posInString++;
+        if (i != 0)
+        {
+            out[posInString] = ' ';
+            posInString++;
+        }
     }
     out[posInString] = '\0';
     return out;
