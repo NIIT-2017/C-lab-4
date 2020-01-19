@@ -1,14 +1,10 @@
 #include "task1.h"
-#include <cstdlib>
+#include <stdlib.h>
 struct string 
 {
     int len;
     char* str;
 };
-static int cmp(const void * a, const void* b)
-{
-    return ((string*)a)->len - ((string*)b)->len;
-}
 void lineSort(char* str[], int size)
 {
     string* strings=(string*)malloc(sizeof(string)*size);
@@ -17,7 +13,18 @@ void lineSort(char* str[], int size)
         strings[i].len = strlen(str[i]);
         strings[i].str = str[i];
     }
-    std::qsort(strings, size,sizeof(string),cmp);
+    for (int i = 0; i < size; i++)
+    {
+        for (int j = 0; j < size-1; j++)
+        {
+            if (strings[j].len > strings[j + 1].len)
+            {
+                struct string tmp = strings[j];
+                strings[j] = strings[j + 1];
+                strings[j + 1] = tmp;
+            }
+        }
+    }
     for (int i = 0; i < size; i++)
         str[i] = strings[i].str;
     
