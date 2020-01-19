@@ -4,14 +4,14 @@ char* reverseWords(char* in, char* out)
 {
     int len = strlen(in);
     int count = 0;
-    for (int i = 0; i <len-1; i++)
+    for (int i = 0; i <len; i++)
     {
-        if (in[i] != ' ' && (in[i + 1] == ' '||in[i+1]=='\n'))
+        if (in[i] != ' ' && (in[i + 1] == ' '||in[i+1]=='\n'|| in[i + 1] == '\0'))
             count++;
     }
-    char** arr = (char**)malloc(count * sizeof(char**));
+    char** arr = (char**)malloc(count * sizeof(char*));
     int number = 0;
-    for (int i = 0; i < len-1; i++)
+    for (int i = 0; i < len; i++)
     {
         if ((in[i] == ' ' && in[i + 1] != ' ') || (i == 0 && in[0] != ' ' && in[0] != '\n'))
         {
@@ -25,7 +25,7 @@ char* reverseWords(char* in, char* out)
     int posInString = 0;
     for (int i = count-1; i >=0; i--)
     {
-        for (int j = 0; arr[i][j] != ' '&&arr[i][j]!='\n'; j++)
+        for (int j = 0; arr[i][j] != ' '&&arr[i][j]!='\n'&&arr[i][j]!='\0'; j++)
         {
             out[posInString] = arr[i][j];
             posInString++;
