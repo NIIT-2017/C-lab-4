@@ -1,4 +1,4 @@
-#define _CRT_SECURE_NO_WARNINGS
+//#define _CRT_SECURE_NO_WARNINGS
 #include<stdio.h>
 #include<string.h>
 #include<stdlib.h>
@@ -6,19 +6,21 @@
 
 #define SIZE 1250
 #define LINE 250
-#define NAME 25
+//#define NAME 25
+
+extern void lineSort(char* str[], int size);
 
 int main(void)
 {
 	FILE*fp;
-	char nameFile[NAME];
+	//char nameFile[NAME]; //if user wants to open another file
 	char input[LINE][SIZE]; //from file to there
 	char *pt_str[LINE];
 
-	puts("Enter name's file:");
-	scanf("%s", nameFile);
+	//puts("Enter name's file:");
+	//scanf("%s", nameFile);
 
-	if ((fp = fopen(nameFile, "a+")) == NULL) //"a+" for readding the file and adding lines in file
+	if ((fp = fopen("task4.txt", "a+")) == NULL) //"a+" for readding the file and adding lines in file
 	{
 		puts("File open ERROR!");
 		return 1;
