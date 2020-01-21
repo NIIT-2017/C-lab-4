@@ -1,6 +1,6 @@
 #include<stdio.h>
 #include<string.h>
-//#include"task1.h" //-for use in main4.cpp
+#include"task1.h"
 
 void lineSort(char* str[], int size)
 {
