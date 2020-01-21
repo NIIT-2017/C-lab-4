@@ -7,6 +7,7 @@ char* reverseWords(char *in, char *out)
 	char* p1[SIZE / 2] = { 0 };
 	int k = 0; //count of words
 	int flag = 0;//if simbol==' '; flag==1 if simbol!=' '
+	int j;
 
 	for (int i = 0; i < strlen(in); i++) 
 	{
@@ -24,7 +25,7 @@ char* reverseWords(char *in, char *out)
 	}
 	
 	k = k - 1; //this is an address of the last word
-	for (int j = 0; k >= 0, j < strlen(in); j++)
+	for (j = 0; k >= 0, j < strlen(in); j++)
 	{
 		if (*p1[k] != ' ' &&*p1[k] != '\0')
 		{
@@ -46,6 +47,7 @@ char* reverseWords(char *in, char *out)
 		else if (*p1[k] == ' ' && k == 0) //for the first word of in[], out[] cat to end '\0'
 			out[j] = '\0';
 	}
+	out[j] = '\0';
 	
 	return out;
 }
