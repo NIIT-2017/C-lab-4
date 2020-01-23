@@ -6,17 +6,28 @@
 int main(void)
 {
 	char line[SIZE];
+	char punctuation[]=",.!?";
 	int result;
 
 	puts("Enter a line:");
 	fgets(line, SIZE, stdin);
 	if (line[strlen(line) - 1] == '\n')
 		line[strlen(line) - 1] = '\0';
+	
+	for (int i=0;i<strlen(line);i++)   //to replace punctuation with ' '
+		for(int j=0;j<strlen(punctuation);j++)
+		{
+			if(line[i]==punctuation[j])
+			{
+				line[i]=' ';
+				continue;
+			}
+		}
 
 	result = isPalindrome(line);
-	if (result == 0)
+	if (result == 1)
 		puts("Our line is Palindrome!");
-	else if (result == 1)
+	else if (result == 0)
 		puts("Our line isn't Palindrome!");
 
 	return 0;
