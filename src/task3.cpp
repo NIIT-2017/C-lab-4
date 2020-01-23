@@ -25,8 +25,8 @@ int isPalindrome(char* str)
 	}
 
 	if (start < end) //meet simbols != (break while)
-		return 1;
+		return 0;
 
 	else // start == end
-		return 0;
+		return 1;
 }
