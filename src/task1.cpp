@@ -2,10 +2,16 @@
 
 #include "task1.h"
 
+//int compare(const void * x1, const void * x2) 
+//{
+//	return ( strlen((char*)x1) - strlen((char*)x2) );
+//}
+
 int compare(const void* a, const void* b)
 {
 	return strlen(*(char**)a) - strlen(*(char**)b);
 }
+
 
 void lineSort(char* str[], int size)
 {	
