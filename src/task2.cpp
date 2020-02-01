@@ -4,6 +4,9 @@
 
 char* reverseWords(char* in, char* out)
 {
+	if (in[strlen(in) - 1] == '\n')
+		in[strlen(in) - 1] = '\0';
+
 	char* p[SIZE];
 	int i = 0, length = 0, inWord = 0;
 
@@ -21,7 +24,7 @@ char* reverseWords(char* in, char* out)
 			inWord = 0;
 		}
 
-		else if (in[i] == '\n')
+		else if (in[i] == '\0')
 			break;
 	}
 
@@ -32,7 +35,7 @@ char* reverseWords(char* in, char* out)
 
 	for (; j >= 0; j--)
 	{
-		for (int k = 0; *(p[j]+k) != ' ' && *(p[j] + k) != '\n'; k++)
+		for (int k = 0; *(p[j]+k) != ' ' && *(p[j] + k) != '\0'; k++)
 		{			
 				out[m] = *(p[j]+k);		
 				m++;
