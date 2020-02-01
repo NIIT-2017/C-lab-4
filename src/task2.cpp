@@ -37,8 +37,8 @@ char* reverseWords(char* in, char* out)
 	{
 		for (int k = 0; *(p[j]+k) != ' ' && *(p[j] + k) != '\0'; k++)
 		{			
-				out[m] = *(p[j]+k);		
-				m++;
+			out[m] = *(p[j]+k);		
+			m++;
 		}
 
 		out[m] = ' ';
@@ -46,6 +46,9 @@ char* reverseWords(char* in, char* out)
 	}
 
 	out[m] = '\0';
+
+	if (out[m - 1] == ' ')
+		out[m - 1] = '\0';
 
 	return out;
 }
