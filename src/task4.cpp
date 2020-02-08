@@ -1,9 +1,8 @@
 #include <stdio.h>
-
 void printLinesToFile(const char* str[], int size, FILE* fp)
 {
 	int i;
-	for (i = 0; i < size; i++)// öèêë âûâîäà 
+	for (i = 0; i < size; i++)// Ã¶Ã¨ÃªÃ« Ã¢Ã»Ã¢Ã®Ã¤Ã  
 	{
 		fprintf(fp, "%s\n", str[i]);		
 	}
