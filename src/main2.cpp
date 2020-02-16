@@ -10,6 +10,7 @@ int main()
     
     printf("Enter a string: ");
     fgets(in, SIZE, stdin);
+
     if (in[strlen(in - 1)] == '\n')
     {
         in[strlen(in - 1)] = 0;
