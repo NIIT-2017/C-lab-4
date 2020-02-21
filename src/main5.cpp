@@ -14,7 +14,7 @@ int main()
 		maxAge = 0,
 		rodstvenniki = 0;
 	printf("Enter rodstvenniki: ");
-	scanf("%d", &relatives);
+	scanf("%d", &rodstvenniki);
 	for (int i=0; i < rodstvenniki; i++)
 	{
 		printf("\nEnter the name of the %s rodstvenniki: ", namber[i]);
