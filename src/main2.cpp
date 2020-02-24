@@ -1,22 +1,23 @@
-﻿#include "task2.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include "task2.h"
+#define N 256
 
 int main()
 {
-    char buf[SIZE] = { 0 };
-    char word[SIZE] = { 0 };
+	char in[N];
+	char out[N] = { 0 };
 
-    printf("Input the line\n");
-    fgets(buf, SIZE, stdin);
+	printf("Input a string to reverse:\n");
+	fgets(in, N, stdin);
 
-    if (buf[strlen(buf) - 1] == '\n')
-        buf[strlen(buf) - 1] = '\0';
+	if (in[strlen(in) - 1] == '\n')
+		in[strlen(in) - 1] = '\0';
 
-    //char buf[256] = "i'm glad to see you";
-    //char word[256];
 
-    reverseWords(buf, word);
+	puts("Reversed string:");
+	printf("%s\n", reverseWords(in, out));
 
-    printf("%s", word);
-
-    return 0;
-}
+	return 0;
+} 
