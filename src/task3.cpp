@@ -1,15 +1,22 @@
-#include "task3.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#define N 256
 
-int isPalindrome(char* str)
+int isPalindrome(char * str)
 {
-    char* left = str;
-    char* right = str + (strlen(str) - 1);
+	char *p;
+	char *q;
 
-    while (right - left > 0)
-    {
-        if (*left == *right)
-            return 1;
-        else
-            return 0;
-    }
-}
+	p = str;
+	q = &str[strlen(str) - 1];
+
+	while (*p==*q)
+	{
+		p++;
+		q--;
+		if (p >= q)
+			return 1;
+	}
+	return 0;
+} 
