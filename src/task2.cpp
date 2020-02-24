@@ -1,49 +1,53 @@
-#include "task2.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#define N 256
+#define inWord 1
+#define outWord 0
 
-char* reverseWords(char* in, char* out)
+char * reverseWords(char * in, char *out)
 {
-    int i = 0;
-    int flag = 0;
-    int count = 0;
-    char* p[SIZE] = { 0 };
-    while (in[i])
-    {
-        if (flag == 0 && in[i] != ' ')
-        {
-            p[count] = &in[i];
-            flag = 1;
-            count++;
-        }
-        else if (flag == 1 && in[i] == ' ')
-        {
-            flag = 0;
-        }
-        i++;
-    }
-    count = count - 1;
-    char* address_of_symbol = p[count];
-    i = 0;
-    while (1)
-    {
-        if (count != 0 && (*address_of_symbol == '\0' || *address_of_symbol == ' '))
-        {
-            out[i] = ' ';
-            count--;
-            address_of_symbol = p[count];
-        }
-        else if (count == 0 && *address_of_symbol == ' ')
-        {
-            out[i] = '\0';
-            break;
-        }
-        else
-        {
-            out[i] = *address_of_symbol;
-            address_of_symbol++;
-        }
+	char *p[N] = { 0 };
 
-        i++;
-    }
+	int i = 0, j=0;
+	int flag = outWord;
 
-    return out;
-}
+	//put the first letter adress of each word to '*p':
+	while (i < strlen(in))
+	{
+		if (in[i] != ' ' && flag == outWord)
+		{
+			p[j] = &in[i];
+			i++;
+			j++;
+			flag = inWord;
+		}
+		else if (in[i] == ' ' && flag == inWord)
+		{
+			flag = outWord;
+			i++;
+		}
+		else
+			i++;
+	}
+
+	//reverse words in string and save it to 'out':
+	i = 0;
+	j--;
+	while (j >= 0)
+	{
+		while (*p[j] && *p[j] != ' ')
+		{
+			out[i] = *p[j];
+			i++;
+			*p[j]++;
+		}
+		out[i] = ' ';
+		i++;
+		j--;
+	}
+	out[i-1] = '\0';
+
+	return out;
+
+} 
