@@ -1,28 +1,23 @@
-﻿#include "task3.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include "task3.h"
+#define N 256
 
 int main()
 {
-    char buf[SIZE] = { 0 };
-    printf("Input the line\n");
-    fgets(buf, SIZE, stdin);
+	char str[N];
 
-    if (buf[strlen(buf) - 1] == '\n')
-        buf[strlen(buf) - 1] = '\0';
+	printf("Enter a string and I will check it for palindrome:\n");
+	fgets(str, N, stdin);
 
-    switch (isPalindrome(buf))
-    {
-    case 1:
-        printf("%s - is palindrome", buf);
-        break;
-    case 0:
-        printf("%s - is not palindrome", buf);
-        break;
-    }
+	if (str[strlen(str) - 1] == '\n')
+		str[strlen(str) - 1] = '\0';
 
-    //char buf[256] = "madamimadam";
-    //printf ("%d\n", isPalindrome(buf));
-    //char buf2[256] = "my name is Vasya";
-    //printf("%d\n", isPalindrome(buf2));
+	if (isPalindrome(str) == 1)
+		printf("It is a PALINDROME!!!!\n");
+	else
+		printf("It's NOT a palindrome!\n");
 
-    return 0;
-}
+	return 0;
+} 
