@@ -1,46 +1,45 @@
-﻿#include "task4.h"
-//#include "C:\labs\C-lab-4\src\task1.cpp"
+#include <stdio.h>
+#include <string.h>
+#include <time.h>
+#include <stdlib.h>
+#include "task4.h"
 
 int main()
 {
-    FILE* fp;
+	char str[256][256] = { 0 };
+	char *p[256] = { 0 };
+	int count = 0;
 
-    fp = fopen("lines.txt", "rt");
+	FILE *fp;
+	fp = fopen("input.txt", "r");
+	if (fp == NULL)
+	{
+		puts("ERROR! INPUT FILE NOT FOUND!");
+		return 1;
+	}
 
-    if (!fp)
-    {
-        puts("Error: file is not found");
-        return 1;
-    }
+	while (count < 256 && fgets(str[count], 256, fp) != NULL)
+	{
+		p[count] = str[count];
+		count++;
+	}
 
-    int ch;
-    int size = 0;
-    while ((ch = fgetc(fp)) != EOF)
-        if (ch == '\n')
-            size++;
+	fclose(fp);
 
-    rewind(fp);
+	lineSort(p, count);
 
 
-    char str[LINES][SYMBOLS_IN_LINE] = { 0 };
-    char* p[LINES] = { 0 };
-    for (int i = 0; i < size; i++)
-    {
-        fgets(str[i], SYMBOLS_IN_LINE, fp);
 
-        if (str[i][strlen(str[i]) - 1] == '\n')
-            str[i][strlen(str[i]) - 1] = '\0';
+	fp = fopen("output.txt", "w");
+	if (fp == NULL)
+	{
+		puts("ERROR! OUTPUT FILE NOT FOUND!");
+		return 1;
+	}
 
-        p[i] = str[i];
-    }
+	printLinesToFile((const char**)p, count, fp);
+	fclose(fp);
 
-    fp = fopen("lines.txt", "at");
-
-    lineSort(p, size);
-
-    printLinesToFile((const char**)p, size, fp);
-
-    fclose(fp);
-
-    return 0;
-}
+	puts("Done!");
+	return 0;
+} 
