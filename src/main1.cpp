@@ -1,35 +1,24 @@
-﻿#include "task1.h"
+#include <stdio.h>
+#include <string.h>
+#include <time.h>
+#include <stdlib.h>
+#include "task1.h"
 
 int main()
 {
-    char buf[LINES][SYMBOLS_IN_LINE] = { 0 };
-    char* p[LINES] = { 0 };
+	char str[256][256];
+	char *p[256];
+	int count = 0;
 
-    printf("Input the lines\n");
 
-    int size = 0;
-    for (int i = 0; i < LINES; i++)
-    {
-        fgets(buf[i], SYMBOLS_IN_LINE, stdin);
-        size++;
+	while (count < 256 && *fgets(str[count], 256, stdin) != '\n')
+	{
+		p[count] = str[count];
+		count++;
+	}
 
-        if (buf[i][strlen(buf[i]) - 1] == '\n')
-            buf[i][strlen(buf[i]) - 1] = '\0';
+	lineSort(p, count);
+	printLines((const char**)p, count);
 
-        p[i] = buf[i];
-
-        if (buf[i][0] == '\0')
-            break;
-    }
-
-    lineSort(p, size);
-    printLines((const char**)p, size);
-
-    //char buf[6][256] = { "123456","123","12","1","1234","12345" };
-    //char* p[] = { buf[0],buf[1],buf[2],buf[3],buf[4],buf[5] };
-
-    //lineSort(p, 6);
-    //printLines((const char**)p, 6);
-
-    return 0;
-}
+	return 0;
+} 
