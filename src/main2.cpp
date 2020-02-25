@@ -1,6 +1,7 @@
 #include"task2.h"
 #include<stdio.h>
 #include<string.h>
+#define N 256
 
 int main(void)
 {
