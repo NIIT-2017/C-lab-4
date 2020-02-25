@@ -16,6 +16,6 @@ int main(void)
    }
    lineSort(p,count);
    puts("Sorted String!");
-   printLines(p,count);
+   printLines((const char**)p,count);
    return 0;
 }
