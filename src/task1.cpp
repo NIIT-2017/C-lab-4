@@ -14,7 +14,7 @@ void lineSort(char *str[],int size)
 	   str[j+1] =temp;
 	 }
 }
-void printLines(char *str[],int size)
+void printLines(const char *str[],int size)
 {
     for(int i =0;i <size;i++)
 	    puts(str[i]);
