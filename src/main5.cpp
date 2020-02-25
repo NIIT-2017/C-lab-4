@@ -11,7 +11,7 @@ int main(void)
   int maxAge=0;
   int minAge=100;
   puts("How many relatives have you got?");
-  scanf("%d".&countRelatives);
+  scanf("%d",&countRelatives);
   for(int i =0; i < countRelatives;i++)
     {
 	puts("Enter the name");
