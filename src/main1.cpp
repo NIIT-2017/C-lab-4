@@ -8,8 +8,8 @@ int main(void)
    char str[N][M];
    char *p[N];
    int count=0;
-   printf("Enter the string!\n",N);
-   while(count < N &&fgets(str[count],M,stdin)!='\n')
+   printf("Enter the string!\n");
+   while(count < N && *fgets(str[count],M,stdin)!='\n')
    {
       p[count]=str[count];
       count++;
