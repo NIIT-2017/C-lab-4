@@ -2,6 +2,8 @@
 #include <string.h>
 #include "task1.h"
 #define SIZE 30
+
+
 int main()
 {
     char str[SIZE][128] = { {0} };

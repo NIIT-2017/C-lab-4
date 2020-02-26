@@ -11,6 +11,7 @@ int main()
     if (str[strlen(str) - 1] == '\n')
     {
         str[strlen(str) - 1] = 0;
+
     }
     if (isPalindrome(str)==1)
         printf("a palidrome\n");

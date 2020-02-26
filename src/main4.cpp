@@ -7,6 +7,7 @@
 int main()
 {
 	char str[SIZE][512] = { {0} };
+
 	char * pstr[SIZE] = { 0 };
 	int size = 0;
 
@@ -18,6 +19,7 @@ int main()
 		return 1;
 	}
 	while (fgets(str[size], 512, fp)) 
+
 	{
 		if (str[size][strlen(str[size]) - 1] == '\n') 
 		{

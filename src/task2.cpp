@@ -11,6 +11,7 @@ char * reverseWords(char * in, char * out)
 	{
 		in[strlen(in) - 1] = 0;
 	}
+
 	while (in[i])
 	{
 		if ((in[i] != ' ') && (inWord == 0))
@@ -19,7 +20,7 @@ char * reverseWords(char * in, char * out)
 			inWord = 1;
 			j++;
 		}
-		
+
 		else if ((in[i] == ' ') && (inWord == 1))
 		{/*конец слова*/
 			inWord = 0;	
