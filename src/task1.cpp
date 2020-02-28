@@ -1,4 +1,6 @@
 #include"task1.h"
+#include<stdio.h>
+#include <string.h>
 
 void lineSort(char * str[], int size)
 {
