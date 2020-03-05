@@ -1,19 +1,46 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <string.h>
-#include "task4.h"
-#define N 256
+#include <stdlib.h>
+#include <time.h>
+#include "task3.h"
+
+#define M 256
+#define N 10
 
 int main()
+
 {
-	char buf[N];
-	printf("Enter a value:\n");
-	fgets(buf, N, stdin);
-	if (buf[strlen(buf) - 1] == '\n')
-		buf[strlen(buf) - 1] = '\0';
 
+char str[N][M] = { 0 };
+char buf[N][M] = { 0 };
 
-	printf("Value: %d\n", getSum(buf));
+int count = 0;
 
+srand((unsigned int)time(0));
+FILE *fp1, *fp2;
 
-	return 0;
+fp1 = fopen("10.txt", "r");
+fp2 = fopen("20.txt", "w+");
+
+if (fp1 == 0)
+
+{
+	puts("File ne naiden!");
+	return 1;
+}
+
+while (count < N && *fgets(str[count], M, fp1) != '\n')
+
+{
+	mixLine(str[count], buf[count]);
+	fputs(buf[count], fp2);
+	putc('\n', fp2);
+	count++;
+}
+
+fclose(fp1);
+fclose(fp2);
+
+return 0;
 }
