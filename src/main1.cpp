@@ -19,3 +19,5 @@ int main()
 	}
 	lineSort(str, count);
 	printLines((const char**)str, count);
+
+}
