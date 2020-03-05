@@ -1,1 +1,1 @@
-int isPalindrome(char *str)
+int isPalindrome(char *str);
