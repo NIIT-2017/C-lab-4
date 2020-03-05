@@ -1,38 +1,19 @@
 #include <stdio.h>
 #include <string.h>
-#include "task1.h"
+#include "task4.h"
+#define N 256
 
-int main() {
+int main()
+{
+	char buf[N];
+	printf("Enter a value:\n");
+	fgets(buf, N, stdin);
+	if (buf[strlen(buf) - 1] == '\n')
+		buf[strlen(buf) - 1] = '\0';
 
-	char in[30][256] = { '\0' };
-	char out[256] = { '\0' };
 
-	FILE * fp = NULL;
-	fp = fopen("text.txt", "r+");
+	printf("Value: %d\n", getSum(buf));
 
-	if (fp == NULL) {
-		printf("Your file can not be find\n");
-		return 1;
-	}
 
-	FILE * fpW = NULL;
-	fpW = fopen("myfile.txt", "w");
-
-	if (fpW == NULL) {
-		printf("Your file can not be find\n");
-		return 1;
-	}
-
-	int strNumber = 0;
-	while (!feof(fp)) {
-		fgets(in[strNumber], 256, fp);
-		randomWords(in[strNumber], out);
-		fprintf(fpW, "%s\n", out);
-		for (int i = 0; i < strlen(out); i++)
-			out[i] = '\0';
-		strNumber++;
-	}
-	fclose(fp);
-	fclose(fpW);
 	return 0;
 }
