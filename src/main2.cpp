@@ -1,23 +1,24 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
+#include <string.h>
 #include "task2.h"
 
+#define N 256
 
 int main()
+
 {
-	char arr[N][M];
-	srand((unsigned int)time(0));
-	clock_t t = clock();
-	while (clock() < t + 10000)
-	{
-		clearMatrix(arr);
-		fillMatrix(arr);
-		system("cls");
-		setMatrix(arr);
-		printMatrix(arr);
-		clock_t t = clock();
-		while (clock() < t + CLOCKS_PER_SEC);
-	}
+
+	char buf[N];
+	char str[N];
+
+	printf("Vvedite stroku:\n");
+	fgets(buf, N, stdin);
+
+	if (buf[strlen(buf) - 1] == '\n')
+		buf[strlen(buf) - 1] = '\0';
+
+	printf("%s", reverseWords(buf, str));
+
 	return 0;
+
 }

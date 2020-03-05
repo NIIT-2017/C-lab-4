@@ -1,51 +1,41 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include "task2.h"
+#include <string.h>
 
-#define A 6
+char * reverseWords(char * in, char *out)
 
-void clearMatrix(char(*arr)[M])
 {
-	int i, j;
-	for (i = 0; i < N; i++)
+
+char *word[10]; 
+
+int q, t = 0, i, j = 0, k = 0, inWord = 0, len = 0;
+len = strlen(in);
+
+for (i = 0; i < len; i++)
+{
+	if (in[i] != ' '&& inWord == 0)
 	{
-		for (j = 0; j < M; j++)
-			arr[i][j] = ' ';
+		*(word + k) = &in[i];
+		k++;
+		inWord = 1;
 	}
+	else if (in[i] == ' '&& inWord == 1)
+		inWord = 0;
 }
 
-void fillMatrix(char(*arr)[M])
+for (q = k - 1; q >= 0; q--)
 {
-	int i, j, rnd = 0;
-	for (i = 0; i < (N / 2); i++)
+	len = strlen(*(word + q));
+
+	for (j, t = 0; j < len; j++, t++)
 	{
-		for (j = 0; j < (M / 2); j++)
-		{
-			rnd = rand() % A;
-			if (rnd == 0)
-				arr[i][j] = '*';
-		}
+		if (*(*(word + q) + t) != ' '&&*(*(word + q) + t) != '\0')
+			out[j] = *(*(word + q) + t);
 	}
+	out[j] = ' ';
+		j++;
 }
 
-void setMatrix(char(*arr)[M])
-{
-	int i, j;
-	for (i = 0; i < (N / 2); i++)
-	for (j = 0; j < (M / 2); j++)
-	{
-		if (arr[i][j] == '*')
-			arr[i][(M - 1) - j] = arr[(N - 1) - i][j] = arr[(N - 1) - i][(M - 1) - j] = arr[i][j];
-	}
-}
+out[j-1]='\0';
+return out;
 
-void printMatrix(char(*arr)[M])
-{
-	int i, j;
-	for (i = 0; i < N; i++)
-	{
-		for (j = 0; j < M; j++)
-			putchar(arr[i][j]);
-		putchar('\n');
-	}
 }

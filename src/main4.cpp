@@ -1,46 +1,40 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-#include <time.h>
-#include "task3.h"
+#include "task4.h"
 
-#define M 256
+
 #define N 10
+#define M 256
 
 int main()
-
 {
+	char buf[N][M];
+	char *str[N];
+	int count = 0;
 
-char str[N][M] = { 0 };
-char buf[N][M] = { 0 };
+#include <stdio.h>
+	
+	FILE *fp;
+	fp = fopen("text.txt", "r");
+	if (fp == NULL)
+	{
+		puts("File not found");
+		return 1;
+	}
 
-int count = 0;
+	while (count < N && *fgets(buf[count], M, fp) != '\n')
+	{
+		str[count] = buf[count];
+		count++;
+	}
 
-srand((unsigned int)time(0));
-FILE *fp1, *fp2;
+	lineSort(str, count);
+	fclose(fp);
 
-fp1 = fopen("10.txt", "r");
-fp2 = fopen("20.txt", "w+");
+#include <stdio.h>
 
-if (fp1 == 0)
-
-{
-	puts("File ne naiden!");
-	return 1;
-}
-
-while (count < N && *fgets(str[count], M, fp1) != '\n')
-
-{
-	mixLine(str[count], buf[count]);
-	fputs(buf[count], fp2);
-	putc('\n', fp2);
-	count++;
-}
-
-fclose(fp1);
-fclose(fp2);
-
-return 0;
+	fp = fopen("2.txt", "w+");
+	printLinesToFile((const char**)str, count, fp);
+	fclose(fp);
+	return 0;
 }

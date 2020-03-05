@@ -1,25 +1,21 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <time.h>
 #include "task1.h"
-#define N 256
+
+#define N 10
+#define M 256
 
 int main()
+
 {
-	char in[N] = { 0 };
-	char out[N] = { 0 };
+	char buf[N][M];
+	char *str[N];
 
-	srand(time(0));
-
-	printf("Enter a string: \n");
-	fgets(in, N, stdin);
-
-	if (in[strlen(in) - 1] == '\n')
-		in[strlen(in) - 1] = '\0';
-
-	randomWords(in, out);
-	printf("%s", out);
-
-	return 0;
-}
+	int count = 0;
+	puts("Vvedite stroku:");
+	while (count < N && *fgets(buf[count], M, stdin) != '\n')
+	{
+		str[count] = buf[count];
+		count++;
+	}
+	lineSort(str, count);
+	printLines((const char**)str, count);

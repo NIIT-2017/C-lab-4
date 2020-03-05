@@ -1,42 +1,22 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
 #include "task3.h"
 
-#define N 20
-#define M 256
+#define N 256
 
-int main() {
+int main()
 
-	char arr[N][M] = { '\0' };
-	char outstr[M] = { '\0' };
+{
+	char buf[N];
+	printf("Vvedite stroku:\n");
+	fgets(buf, N, stdin);
 
-	FILE * fp = NULL;
-	fp = fopen("text.txt", "r+");
+	if (buf[strlen(buf) - 1] == '\n')
+		buf[strlen(buf) - 1] = '\0';
 
-	if (fp == NULL) {
-		printf("Your file can not be find\n");
-		return 1;
-	}
-
-	FILE * fpW = NULL;
-	fpW = fopen("myfile.txt", "w");
-
-	if (fpW == NULL) {
-		printf("Your file can not be find\n");
-		return 1;
-	}
-
-	int strNumber = 0;
-	while (!feof(fp)) {
-		fgets(arr[strNumber], M, fp);
-		mixLine(arr[strNumber], outstr);
-		fprintf(fpW, "%s\n", outstr);
-		strNumber++;
-	}
-
-	fclose(fp);
-	fclose(fpW);
-
+	if (isPalindrome(buf) == 1)
+		printf("Stroka %s eto polindrom", buf);
+	else
+		printf("Stroka %s ne polindrom", buf);
 	return 0;
 }
