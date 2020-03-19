@@ -1,7 +1,9 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <stdlib.h>
-#include<locale>
+#include <string.h>
+#include <ctype.h>
+#include<locale.h>
 #include "task4.h"
 #define N 20
 #define M 255
