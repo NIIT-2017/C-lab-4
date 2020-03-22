@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 
-void lineSort(char* str[], int size) //функция сортирующая массив указателей
+void lineSort(char* str[], int size) //ГґГіГ­ГЄГ¶ГЁГї Г±Г®Г°ГІГЁГ°ГіГѕГ№Г Гї Г¬Г Г±Г±ГЁГў ГіГЄГ Г§Г ГІГҐГ«ГҐГ©
 {
 	int i = 0;
 	int j = 0;
@@ -9,7 +9,7 @@ void lineSort(char* str[], int size) //функция сортирующая массив указателей
 	{
 		for (j = i + 1; j < size; j++)
 		{
-			if (strlen(str[i]) > strlen(str[j]))//цикл сортировки строк пол длинне
+			if (strlen(str[i]) > strlen(str[j]))//Г¶ГЁГЄГ« Г±Г®Г°ГІГЁГ°Г®ГўГЄГЁ Г±ГІГ°Г®ГЄ ГЇГ®Г« Г¤Г«ГЁГ­Г­ГҐ
 			{
 				char* t = str[i];
 				str[i] = str[j];
@@ -17,4 +17,9 @@ void lineSort(char* str[], int size) //функция сортирующая массив указателей
 			}
 		}
 	}
+}
+void printLines(const char* str[], int size)
+{
+	for (int j = 0; j < size; j++)
+		printf("%s\n", str[j]);
 }
