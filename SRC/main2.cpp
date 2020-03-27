@@ -8,6 +8,7 @@ int main()
 {
 	char in[SIZE];
 	char out[SIZE];
+	
 	printf("Input the line\n");
 	fgets(in, 256, stdin);
 
